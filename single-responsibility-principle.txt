@@ -1,0 +1,2 @@
+-> class should have only on reason to change, means it should have only one responsibility or job in other words -
+   a class should have a single well defined purpose.
