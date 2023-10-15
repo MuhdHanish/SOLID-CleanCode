@@ -1,0 +1,2 @@
+-> if a class is a subclass of another class, you should be able to use objects of the subclass wherever objects -
+   of the superclass are expected.
