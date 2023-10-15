@@ -1,0 +1,1 @@
+-> Software entities like classes, functions, modules are open of extension but closed for modification.
