@@ -1,0 +1,2 @@
+-> Many small, specific interfaces are better than one large, general interface.This helps ensure that classes only need - 
+   to implement the specific methods they require, making the code more modular and preventing unnecessary dependencies. 
