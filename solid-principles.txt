@@ -1,0 +1,4 @@
+-> The SOLID principles are a set of five design principles that promote good software architecture and object-oriented -
+   programming practices.By adhering to the SOLID principles, developers aim to create code that is easier to -
+   understand, extend, and maintain. These principles provide a foundation for object-oriented design that leads to -
+   more robust and adaptable software systems.
