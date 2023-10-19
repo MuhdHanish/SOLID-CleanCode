@@ -1,0 +1,2 @@
+-> High-level modules should not depend on low-level modules. Both should depend on abstractions.
+   this principle encourages you to write code in a way that makes it easy to change, extend, and maintain without introducing unnecessary complexity. 

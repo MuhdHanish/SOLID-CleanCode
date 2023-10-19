@@ -1,16 +1,21 @@
 class Store {
-    constructor(user) {
-        // this.stripe = new Stripe(user);
-        this.user = user;
-        this.paypal = new Paypal();
+    constructor(paymentProcessor) {
+        this.paymentProcessor = paymentProcessor;
     }
     purchaseBike(quantity) {
-        this.paypal.makePayment(this.user, 200 * quantity);
-        // this.paypal.makePayment(user,200 * quantity * 100);
+        this.paymentProcessor.pay(200 * quantity);
     }
     purchaseHelment(quantity) {
-        this.paypal.makePayment(this.user, 15 * quantity);
-        // this.stripe.makePayment(15 * quantity * 100);
+        this.paymentProcessor.pay(15 * quantity);
+    }
+}
+
+class StripePaymentProcessor{
+    constructor(user) {
+        this.stripe = new Stripe(user);
+    }
+    pay(amountInDollars) {
+        this.stripe.makePayment(amountInDollars * 100);
     }
 }
 
@@ -23,14 +28,24 @@ class Stripe{
     }
 }
 
+class PaypalPaymentProcessor {
+    constructor(user) {
+        this.user = user;
+        this.paypal = new Paypal();
+    }
+    pay(amountInDollars) {
+        this.paypal.makePayment(this.user, amountInDollars);
+    }
+}
+
 class Paypal{
     makePayment(user, amountInDollars) {
         console.log(`${user} made payment of $${amountInDollars} with Paypal`);
     }
 }
 
-const store = new Store("Jhon");
+const store = new Store(new PaypalPaymentProcessor("Jhon"));
 store.purchaseBike(2);
 store.purchaseHelment(2);
 
-// In this case the store and payment integration directly connected and depended, it make more truble some time.
+// In this case the store not depended the integration so we only need to change the proccer when need and we can use the all methods of the processer.
